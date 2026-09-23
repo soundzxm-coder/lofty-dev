@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lofty Dev — digital and brand development by Lofty Investments. Web design, identity, signage, print and vehicle branding.">
+<title>Lofty Dev — Digital & Brand Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#050505;
+  --black-2:#090909;
+  --panel:#0d0d0e;
+  --panel-2:#111112;
+  --line:#232325;
+  --line-2:#343437;
+  --white:#f5f5f5;
+  --soft:#c9c9cc;
+  --muted:#929296;
+  --faint:#626266;
+  --max:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.menu-open{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(var(--max),calc(100% - 56px));margin:auto}
+::selection{background:#ddd;color:#000}
+
+/* Shared */
+.eyebrow{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.chrome{
+  background:linear-gradient(180deg,#fff 0%,#d9d9da 28%,#77777a 48%,#fff 63%,#555558 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 20px;
+  border:1px solid transparent;
+  border-radius:2px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:.2s ease;
+}
+.btn-primary{
+  background:#ededee;
+  color:#080808;
+  border-color:#fff;
+}
+.btn-primary:hover{background:#fff;transform:translateY(-1px)}
+.btn-secondary{
+  color:var(--white);
+  border-color:var(--line-2);
+}
+.btn-secondary:hover{border-color:#999}
+.section{
+  border-top:1px solid var(--line);
+  padding:105px 0;
+}
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:46px;
+}
+.section-head h2{
+  font-family:Manrope,sans-serif;
+  font-size:clamp(28px,4vw,48px);
+  line-height:1;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+}
+.section-head p{max-width:400px;color:var(--muted);font-size:13px;line-height:1.7}
+
+/* Header */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  background:rgba(5,5,5,.84);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo-link{display:flex;align-items:center;gap:11px}
+.logo-link img{
+  width:43px;height:43px;object-fit:contain;
+  filter:grayscale(1) brightness(1.45);
+}
+.logo-type{font-family:Manrope,sans-serif;font-size:17px;font-weight:800;letter-spacing:.04em}
+.logo-type span{color:var(--faint);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a:not(.btn){color:var(--muted);font-size:12px}
+.nav-links a:not(.btn):hover{color:#fff}
+.menu{
+  display:none;
+  width:40px;height:40px;
+  border:1px solid var(--line-2);
+  background:none;color:#fff;
+}
+.menu span{display:block;width:17px;height:1px;background:#fff;margin:4px auto;transition:.2s}
+.menu.open span:first-child{transform:translateY(5px) rotate(45deg)}
+.menu.open span:nth-child(2){opacity:0}
+.menu.open span:last-child{transform:translateY(-5px) rotate(-45deg)}
+.mobile{
+  display:none;
+  padding:20px 28px 26px;
+  background:#050505;
+  border-top:1px solid var(--line);
+}
+.mobile a{display:block;padding:13px 0;color:var(--muted);border-bottom:1px solid var(--line);font-size:13px}
+.mobile .btn{margin-top:17px}
+
+/* Hero */
+.hero{
+  min-height:100vh;
+  padding:150px 0 80px;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:950px;height:650px;
+  left:50%;top:-60px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(255,255,255,.055),transparent 66%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(270px,.75fr);
+  gap:80px;
+  align-items:end;
+  position:relative;
+}
+.hero h1{
+  margin-top:20px;
+  font-family:Manrope,sans-serif;
+  font-size:clamp(48px,7vw,92px);
+  line-height:.94;
+  letter-spacing:-.065em;
+  text-transform:uppercase;
+  max-width:900px;
+}
+.hero-lede{
+  margin-top:28px;
+  max-width:650px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:35px}
+.hero-aside{
+  border-left:1px solid var(--line);
+  padding-left:28px;
+}
+.hero-aside .aside-title{
+  font-family:Manrope,sans-serif;
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+.hero-aside p{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.8}
+.hero-meta{
+  margin-top:80px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.hero-meta div{border-right:1px solid var(--line);padding-left:18px}
+.hero-meta div:first-child{padding-left:0}
+.hero-meta div:last-child{border:0}
+.hero-meta strong{display:block;font-family:Manrope,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.hero-meta span{display:block;margin-top:6px;color:var(--faint);font-size:11px}
+
+/* Positioning */
+.positioning{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:90px;
+}
+.positioning h2{
+  font-family:Manrope,sans-serif;
+  font-size:clamp(30px,4vw,51px);
+  line-height:1.05;
+  letter-spacing:-.05em;
+  text-transform:uppercase;
+}
+.positioning h2 span{color:var(--faint)}
+.positioning-copy{color:var(--muted);font-size:14px;line-height:1.85}
+.positioning-copy p+p{margin-top:18px}
+
+/* Capabilities */
+.cap-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  border:1px solid var(--line);
+  gap:1px;
+  background:var(--line);
+}
+.cap{
+  background:var(--black);
+  padding:38px 40px 42px;
+  min-height:290px;
+  transition:background .2s;
+}
+.cap:hover{background:#0a0a0a}
+.cap-number{color:var(--faint);font-family:Manrope,sans-serif;font-size:11px;font-weight:800;letter-spacing:.14em}
+.cap h3{margin-top:22px;font-family:Manrope,sans-serif;font-size:21px;line-height:1.1;text-transform:uppercase}
+.cap p{margin-top:13px;color:var(--muted);font-size:13px;line-height:1.75;max-width:470px}
+.cap-bottom{margin-top:24px;padding-top:15px;border-top:1px solid var(--line);color:#c8c8ca;font-size:11px}
+
+/* Work / visual proof */
+.work-grid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.work-card{
+  min-height:360px;
+  background:#0a0a0b;
+  position:relative;
+  overflow:hidden;
+}
+.work-card:first-child{grid-row:span 2;min-height:721px}
+.work-card:before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.09),transparent 35%),
+    radial-gradient(circle at 70% 25%,rgba(255,255,255,.09),transparent 25%);
+}
+.work-card .work-inner{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.work-label{font-size:9px;letter-spacing:.16em;color:#8b8b8e;text-transform:uppercase}
+.work-title{font-family:Manrope,sans-serif;font-size:clamp(25px,4vw,55px);line-height:.95;letter-spacing:-.05em;text-transform:uppercase;max-width:520px}
+.work-small .work-title{font-size:27px}
+.work-sub{color:#929296;font-size:11px;max-width:340px;line-height:1.6}
+
+.work-card.has-image .work-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(35%) contrast(1.05);
+  transition:transform .5s ease, filter .3s ease;
+  cursor:zoom-in;
+}
+#workDigitalImg{ object-position:top; filter:none; }
+.work-card.has-image:hover .work-photo{ transform:scale(1.04); filter:grayscale(10%) contrast(1.08); }
+#workDigital:hover #workDigitalImg{ transform:scale(1.04); filter:none; }
+.work-card.has-image .work-inner{
+  background:linear-gradient(180deg, rgba(5,5,6,.05) 0%, rgba(5,5,6,.25) 55%, rgba(5,5,6,.94) 100%);
+  transition:background .3s ease;
+  pointer-events:none;
+}
+.work-card.has-image .work-inner .work-strip{ pointer-events:auto; }
+.work-card.has-image .work-inner .work-tabs{ pointer-events:auto; }
+.work-bottom-row{
+  position:absolute; bottom:34px; left:34px; right:34px;
+  display:flex; align-items:center; justify-content:space-between;
+  z-index:2;
+}
+.work-tabs{ display:flex; gap:8px; }
+.work-tab{
+  font-size:10px; letter-spacing:.06em; text-transform:uppercase;
+  padding:7px 12px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.4);
+  color:#c9c9cc;
+  cursor:pointer;
+  transition:border-color .2s ease, color .2s ease, background .2s ease;
+}
+.work-tab:hover{ border-color:#fff; color:#fff; }
+.work-tab.active{ border-color:#fff; color:#fff; background:rgba(255,255,255,.1); }
+.work-card.has-image:hover .work-inner{
+  background:linear-gradient(180deg, rgba(5,5,6,0) 0%, rgba(5,5,6,.08) 55%, rgba(5,5,6,.5) 100%);
+}
+.work-card.has-image .work-sub{ color:#c9c9cc; }
+.work-strip{
+  display:flex; gap:6px;
+}
+.work-strip img{
+  width:44px; height:44px; object-fit:cover;
+  border:1px solid rgba(255,255,255,.25);
+  filter:grayscale(35%);
+  cursor:pointer;
+  transition:filter .2s ease, transform .2s ease;
+}
+.work-strip img:hover{ filter:grayscale(0%); transform:translateY(-2px); }
+.work-strip img.active{ border-color:#fff; }
+.work-zoom-hint{
+  position:absolute; top:20px; right:20px; z-index:2;
+  font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);
+  background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.2);
+  padding:6px 10px; opacity:0; transition:opacity .25s ease;
+  pointer-events:none;
+}
+.work-card.has-image:hover .work-zoom-hint{ opacity:1; }
+
+.lightbox{
+  position:fixed; inset:0; z-index:500;
+  background:rgba(3,3,4,.94);
+  display:none; align-items:center; justify-content:center;
+  padding:40px 24px;
+}
+.lightbox.open{ display:flex; }
+.lightbox-frame{
+  display:flex; flex-direction:column; align-items:center; gap:18px;
+  max-width:1000px; width:100%;
+}
+.lightbox img{
+  max-width:min(92vw,1000px); max-height:76vh; object-fit:contain;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+.lightbox-caption{
+  text-align:center;
+  font-size:12.5px; color:var(--muted);
+}
+.lightbox-caption strong{ color:#fff; font-family:Manrope,sans-serif; letter-spacing:.02em; }
+.lightbox-count{
+  font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-top:4px;
+}
+.lightbox-close{
+  position:fixed; top:24px; right:28px;
+  width:40px; height:40px;
+  border:1px solid var(--line-2); background:rgba(0,0,0,.5); color:#fff;
+  font-size:20px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  z-index:2;
+}
+.lightbox-close:hover{ border-color:#fff; }
+.lightbox-nav{
+  position:fixed; top:50%; transform:translateY(-50%);
+  width:48px; height:48px;
+  border:1px solid var(--line-2); background:rgba(0,0,0,.5); color:#fff;
+  font-size:20px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  z-index:2;
+}
+.lightbox-nav:hover{ border-color:#fff; }
+.lightbox-prev{ left:24px; }
+.lightbox-next{ right:24px; }
+@media(max-width:640px){
+  .lightbox-nav{ width:40px; height:40px; }
+  .lightbox-prev{ left:10px; }
+  .lightbox-next{ right:10px; }
+  .lightbox-close{ top:14px; right:14px; }
+}
+
+/* Flow */
+.flow{text-align:center}
+.flow h2{font-family:Manrope,sans-serif;font-size:clamp(32px,5vw,59px);line-height:1;letter-spacing:-.055em;text-transform:uppercase}
+.flow-copy{max-width:560px;margin:18px auto 0;color:var(--muted);font-size:13px;line-height:1.8}
+.flow-line{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:52px}
+.node{padding:13px 18px;border:1px solid var(--line-2);font-family:Manrope,sans-serif;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#c8c8ca}
+.arrow{padding:0 9px;color:#4f4f52}
+
+/* Process */
+.process-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+.step{padding:0 18px;border-left:1px solid var(--line);min-height:170px}
+.step:first-child{border-left:0;padding-left:0}
+.step-num{font-family:Manrope,sans-serif;font-size:27px;font-weight:800}
+.step h3{margin-top:18px;font-family:Manrope,sans-serif;font-size:13px;text-transform:uppercase}
+.step p{margin-top:9px;color:var(--faint);font-size:11.5px;line-height:1.7}
+
+/* CTA */
+.cta{
+  text-align:center;
+  padding:125px 0 135px;
+  position:relative;
+  overflow:hidden;
+}
+.cta:before{
+  content:"";
+  position:absolute;
+  width:800px;height:420px;
+  left:50%;bottom:-220px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(255,255,255,.06),transparent 68%);
+}
+.cta h2{
+  position:relative;
+  font-family:Manrope,sans-serif;
+  font-size:clamp(38px,6vw,72px);
+  line-height:.98;
+  letter-spacing:-.06em;
+  text-transform:uppercase;
+  max-width:900px;
+  margin:18px auto 0;
+}
+.cta p{position:relative;max-width:500px;margin:22px auto 35px;color:var(--muted);font-size:13px;line-height:1.8}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:85px}
+.contact-copy h2{font-family:Manrope,sans-serif;font-size:clamp(32px,4vw,52px);line-height:1;letter-spacing:-.05em;text-transform:uppercase}
+.contact-copy p{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.8}
+.contact-details{margin-top:35px;border-top:1px solid var(--line)}
+.detail{padding:17px 0;border-bottom:1px solid var(--line)}
+.detail small{display:block;color:var(--faint);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.detail span{display:block;margin-top:6px;font-size:12px;color:#d0d0d2}
+.field{margin-bottom:17px}
+.field label{display:block;margin-bottom:7px;color:var(--faint);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.field input,.field select,.field textarea{
+  width:100%;
+  background:var(--panel);
+  color:#eee;
+  border:1px solid var(--line-2);
+  border-radius:2px;
+  outline:0;
+  padding:13px;
+  font-size:12px;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#aaa}
+.field textarea{min-height:120px;resize:vertical}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#9b5a5a}
+.error{display:none;color:#d38282;font-size:10px;margin-top:5px}
+.field.invalid .error{display:block}
+.form-status{min-height:20px;margin-top:10px;font-size:11px;color:var(--muted)}
+.form-status.success{color:#d9d9db}
+.form-status.error{color:#d38282}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:45px 0 30px}
+.footer-row{display:flex;justify-content:space-between;gap:40px}
+.footer-name{font-family:Manrope,sans-serif;font-weight:800;font-size:16px}
+.footer-name span{color:var(--faint);font-weight:500}
+.footer-copy{margin-top:8px;max-width:340px;color:var(--faint);font-size:11px;line-height:1.7}
+.footer-links{color:var(--faint);font-size:10px;text-transform:uppercase;letter-spacing:.08em;line-height:2;text-align:right}
+.copyright{margin-top:35px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:#4f4f52;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+
+/* Responsive */
+@media(max-width:900px){
+  .nav-links{display:none}.menu{display:block}
+  .mobile.open{display:block}
+  .hero-grid,.positioning,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-aside{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
+  .hero-meta{margin-top:55px}
+  .process-grid{grid-template-columns:repeat(3,1fr);gap:35px 0}
+  .step{border-left:0;padding:0 18px}
+  .step:nth-child(3n+1){padding-left:0}
+  .work-grid{grid-template-columns:1fr}
+  .work-card:first-child{grid-row:auto;min-height:500px}
+}
+@media(max-width:620px){
+  .container{width:calc(100% - 32px)}
+  .section{padding:78px 0}
+  .section-head{display:block;margin-bottom:30px}
+  .section-head p{margin-top:13px}
+  .hero{min-height:auto;padding:120px 0 70px}
+  .hero h1{font-size:clamp(43px,13vw,70px)}
+  .hero-lede{font-size:13px}
+  .hero-actions .btn{width:100%}
+  .hero-meta{grid-template-columns:1fr 1fr}
+  .hero-meta div{padding:12px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .hero-meta div:nth-child(even){padding-left:14px;border-left:1px solid var(--line)}
+  .hero-meta div:nth-last-child(-n+2){border-bottom:0}
+  .cap-grid{grid-template-columns:1fr}
+  .cap{min-height:auto;padding:30px 25px}
+  .flow-line{gap:5px}.node{padding:10px 12px}.arrow{padding:0 3px;font-size:10px}
+  .process-grid{grid-template-columns:1fr 1fr;gap:30px 0}
+  .step{min-height:150px;padding:0 14px}
+  .step:nth-child(odd){padding-left:0}
+  .step:nth-child(even){border-left:1px solid var(--line)}
+  .work-card:first-child{min-height:420px}
+  .work-card{min-height:280px}
+  .footer-row{display:block}
+  .footer-links{text-align:left;margin-top:22px}
+}
+:focus-visible{outline:2px solid #ddd;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Visibility Check */
+.vis-shell{
+  max-width:680px;
+  margin:0 auto;
+  border:1px solid var(--line);
+  background:var(--panel);
+  padding:52px 48px;
+  position:relative;
+}
+.vis-progress-track{
+  height:2px; background:var(--line); width:100%; margin-bottom:34px; overflow:hidden;
+}
+.vis-progress-bar{
+  height:100%; width:0%; background:linear-gradient(90deg,#77777a,#fff);
+  transition:width .35s ease;
+}
+.vis-step-label{
+  font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint);
+  margin-bottom:18px;
+}
+.vis-question{
+  font-family:Manrope,sans-serif;
+  font-size:clamp(19px,2.6vw,25px);
+  line-height:1.25;
+  letter-spacing:-.01em;
+  margin-bottom:28px;
+  min-height:64px;
+}
+.vis-options{ display:flex; flex-direction:column; gap:10px; }
+.vis-option{
+  text-align:left;
+  width:100%;
+  padding:16px 20px;
+  background:transparent;
+  border:1px solid var(--line-2);
+  color:var(--soft);
+  font-size:13.5px;
+  cursor:pointer;
+  transition:border-color .2s ease, background .2s ease, color .2s ease;
+}
+.vis-option:hover{ border-color:#999; color:#fff; background:rgba(255,255,255,.03); }
+.vis-option.selected{ border-color:#fff; color:#fff; background:rgba(255,255,255,.06); }
+.vis-nav{ display:flex; justify-content:space-between; align-items:center; margin-top:30px; }
+.vis-back{
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint);
+  background:none; border:none; cursor:pointer; padding:8px 0;
+  visibility:hidden;
+}
+.vis-back.show{ visibility:visible; }
+.vis-back:hover{ color:#fff; }
+
+.vis-intro{ text-align:center; }
+.vis-intro p{ color:var(--muted); font-size:13.5px; line-height:1.75; max-width:480px; margin:14px auto 32px; }
+
+.vis-result{ display:none; text-align:center; }
+.vis-result.show{ display:block; }
+.vis-quiz.hide{ display:none; }
+.vis-score{
+  font-family:Manrope,sans-serif;
+  font-weight:800;
+  font-size:clamp(56px,9vw,88px);
+  line-height:1;
+  letter-spacing:-.03em;
+}
+.vis-score span{ font-size:.32em; color:var(--faint); font-weight:600; margin-left:6px; }
+.vis-tier{
+  margin-top:14px;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--soft);
+}
+.vis-feedback{
+  margin-top:24px; padding-top:24px; border-top:1px solid var(--line);
+  color:var(--muted); font-size:13.5px; line-height:1.8; text-align:left;
+}
+.vis-feedback strong{ color:#fff; }
+.vis-result .btn{ margin-top:30px; }
+.vis-restart{
+  display:block; margin:18px auto 0; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--faint); background:none; border:none; cursor:pointer;
+}
+.vis-restart:hover{ color:#fff; }
+
+@media(max-width:680px){
+  .vis-shell{ padding:36px 24px; }
+}
+
+.scroll-top{
+  position:fixed; right:24px; bottom:24px; z-index:120;
+  width:46px; height:46px;
+  border:1px solid var(--line-2);
+  background:rgba(10,10,11,.75);
+  backdrop-filter:blur(6px);
+  color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  font-size:18px;
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:opacity .25s ease, transform .25s ease, border-color .2s ease;
+}
+.scroll-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.scroll-top:hover{ border-color:#fff; }
+@media(max-width:640px){
+  .scroll-top{ right:16px; bottom:16px; width:42px; height:42px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container nav">
+    <a class="logo-link" href="#top" aria-label="Lofty Dev home">
+      <img src="lofty-logo.jpeg" alt="Lofty Dev logo">
+      <div class="logo-type">LOFTY <span>DEV</span></div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Approach</a>
+      <a href="#process">Process</a>
+      <a href="#visibility-check">Visibility Check</a>
+      <a class="btn btn-primary" href="#contact">Start a Project</a>
+    </div>
+
+    <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile" id="mobile">
+    <a href="#capabilities">Capabilities</a>
+    <a href="#work">Approach</a>
+    <a href="#process">Process</a>
+    <a href="#visibility-check">Visibility Check</a>
+    <a class="btn btn-primary" href="#contact">Start a Project</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Lofty Investments · Creative & Digital</div>
+        <h1 class="chrome">Digital presence.<br>Physical presence.<br>One brand.</h1>
+        <p class="hero-lede">
+          Lofty Dev develops the digital and visual presence of businesses —
+          from brand identity and websites to signage, print and vehicle branding.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Start a Project</a>
+          <a class="btn btn-secondary" href="#capabilities">View Capabilities</a>
+        </div>
+      </div>
+
+      <aside class="hero-aside">
+        <div class="aside-title">A division of Lofty Investments</div>
+        <p>
+          We connect design, digital development and physical brand
+          implementation so that a business can present one coherent identity
+          wherever customers encounter it.
+        </p>
+      </aside>
+    </div>
+
+    <div class="hero-meta">
+      <div><strong>Identity</strong><span>Logo & Brand Systems</span></div>
+      <div><strong>Digital</strong><span>Websites & Landing Pages</span></div>
+      <div><strong>Physical</strong><span>Signage & Print</span></div>
+      <div><strong>Mobility</strong><span>Vehicle Branding</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container positioning">
+    <div>
+      <div class="eyebrow">The Lofty Dev Approach</div>
+      <h2 style="margin-top:18px">
+        We don't treat branding as a <span>single logo file.</span>
+      </h2>
+    </div>
+    <div class="positioning-copy">
+      <p>
+        A business identity has to work beyond the screen. It needs to remain
+        recognisable on a website, a quotation, a signboard, a sticker or a
+        branded vehicle.
+      </p>
+      <p>
+        Lofty Dev approaches the brand as a connected system — design it once,
+        then build the assets required to put it to work.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="capabilities">
+  <div class="container">
+    <div class="section-head">
+      <h2>Capabilities</h2>
+      <p>Focused creative and digital services for businesses that need a professional presence.</p>
+    </div>
+
+    <div class="cap-grid">
+      <article class="cap">
+        <div class="cap-number">01 / IDENTITY</div>
+        <h3>Logo & Brand Design</h3>
+        <p>Professional identity development for businesses that need a clear and consistent visual foundation.</p>
+        <div class="cap-bottom">Logo systems · Brand assets · Business collateral · Digital graphics</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-number">02 / DIGITAL</div>
+        <h3>Website Development</h3>
+        <p>Clean, responsive web experiences designed to communicate what the business does and give customers a direct point of contact.</p>
+        <div class="cap-bottom">Business websites · Landing pages · Service pages · Mobile-first layouts</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-number">03 / PRODUCTION</div>
+        <h3>Signage & Print</h3>
+        <p>Artwork prepared for physical production, with support through the printing stage so the finished brand can move from screen to space.</p>
+        <div class="cap-bottom">Signage · Banners · Stickers · Business cards · Promotional material</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-number">04 / VEHICLE</div>
+        <h3>Vehicle Branding</h3>
+        <p>Brand applications designed for vehicles and prepared for professional printing and installation.</p>
+        <div class="cap-bottom">Vehicle graphics · Decals · Fleet applications · Print coordination</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head">
+      <h2>Built to Be Seen</h2>
+      <p>A brand should work across the environments where customers actually encounter it.</p>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card has-image" id="workFeature">
+        <img class="work-photo" id="workFeatureImg" src="work-vehicle-1.jpg" alt="Rustenburg Local Municipality fleet vehicle branding, close-up of door decal">
+        <span class="work-zoom-hint">Click to enlarge</span>
+        <div class="work-inner">
+          <div class="work-label">01 / Vehicle Branding</div>
+          <div>
+            <div class="work-title chrome">Rustenburg Local Municipality — fleet branding.</div>
+            <p class="work-sub">Directorate and unit signage designed, printed and applied to municipal fleet vehicles — durable, compliant, and consistent across every truck.</p>
+          </div>
+          <div class="work-bottom-row" style="justify-content:flex-end">
+            <div class="work-strip">
+              <img src="work-vehicle-1.jpg" class="active" data-full="work-vehicle-1.jpg" alt="Vehicle branding view 1">
+              <img src="work-vehicle-2.jpg" data-full="work-vehicle-2.jpg" alt="Vehicle branding view 2">
+              <img src="work-vehicle-3.jpg" data-full="work-vehicle-3.jpg" alt="Vehicle branding view 3">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card work-small has-image">
+        <img class="work-photo" src="work-print-1.jpg" alt="Freshly printed Rustenburg Local Municipality decal, before application">
+        <span class="work-zoom-hint">Click to enlarge</span>
+        <div class="work-inner">
+          <div class="work-label">02 / Signage & Print</div>
+          <div>
+            <div class="work-title">Off the printer, ready to apply.</div>
+            <p class="work-sub">Artwork prepared and printed to spec — the same sheet that ends up on the fleet doors.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card work-small has-image" id="workDigital">
+        <img class="work-photo" id="workDigitalImg" src="work-web-1.jpg" alt="Three Q's cleaning company website, hero section">
+        <span class="work-zoom-hint">Click to enlarge</span>
+        <div class="work-inner">
+          <div class="work-label">03 / Digital</div>
+          <div>
+            <div class="work-title">Online presence.</div>
+            <p class="work-sub" id="digitalSub">Three Q's — a full site built around clarity, credibility and conversion.</p>
+          </div>
+          <div class="work-bottom-row">
+            <div class="work-tabs" id="workTabs">
+              <button type="button" class="work-tab active" data-project="threeqs">Three Q's</button>
+              <button type="button" class="work-tab" data-project="innovative">Innovative Solutions</button>
+            </div>
+            <div class="work-strip" data-project="threeqs" id="stripThreeQs">
+              <img src="work-web-1.jpg" class="active" data-full="work-web-1.jpg" alt="Three Q's website view 1">
+              <img src="work-web-2.jpg" data-full="work-web-2.jpg" alt="Three Q's website view 2">
+              <img src="work-web-3.jpg" data-full="work-web-3.jpg" alt="Three Q's website view 3">
+            </div>
+            <div class="work-strip" data-project="innovative" id="stripInnovative" style="display:none">
+              <img src="work-innovative-1.jpg" data-full="work-innovative-1.jpg" alt="Innovative Solutions website view 1">
+              <img src="work-innovative-2.jpg" data-full="work-innovative-2.jpg" alt="Innovative Solutions website view 2">
+              <img src="work-innovative-3.jpg" data-full="work-innovative-3.jpg" alt="Innovative Solutions website view 3">
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section flow">
+  <div class="container">
+    <div class="eyebrow">One identity · Multiple applications</div>
+    <h2 style="margin-top:17px">Design once. <span class="chrome">Deploy everywhere.</span></h2>
+    <p class="flow-copy">
+      The objective is consistency — not simply having a logo, website and signboard,
+      but making all three look like they belong to the same business.
+    </p>
+    <div class="flow-line">
+      <span class="node">Identity</span><span class="arrow">→</span>
+      <span class="node">Website</span><span class="arrow">→</span>
+      <span class="node">Print</span><span class="arrow">→</span>
+      <span class="node">Signage</span><span class="arrow">→</span>
+      <span class="node">Vehicle</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head">
+      <h2>Process</h2>
+      <p>A clear route from brief to finished brand implementation.</p>
+    </div>
+
+    <div class="process-grid">
+      <article class="step"><div class="step-num">01</div><h3>Brief</h3><p>Understand the business, objective and requirements.</p></article>
+      <article class="step"><div class="step-num">02</div><h3>Direction</h3><p>Establish the visual direction and scope of work.</p></article>
+      <article class="step"><div class="step-num">03</div><h3>Design</h3><p>Create the identity and required creative assets.</p></article>
+      <article class="step"><div class="step-num">04</div><h3>Develop</h3><p>Translate the identity into the required digital experience.</p></article>
+      <article class="step"><div class="step-num">05</div><h3>Produce</h3><p>Prepare and coordinate physical brand applications.</p></article>
+      <article class="step"><div class="step-num">06</div><h3>Deploy</h3><p>Put the finished brand to work across the business.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visibility-check">
+  <div class="container">
+    <div class="section-head">
+      <h2>Business Visibility Check</h2>
+      <p>A quick, honest read on how visible your business actually is — online and in the real world.</p>
+    </div>
+
+    <div class="vis-shell">
+
+      <div class="vis-quiz" id="visQuiz">
+        <div class="vis-progress-track"><div class="vis-progress-bar" id="visProgressBar"></div></div>
+        <div class="vis-step-label" id="visStepLabel">Question 1 of 9</div>
+        <div class="vis-question" id="visQuestion"></div>
+        <div class="vis-options" id="visOptions"></div>
+        <div class="vis-nav">
+          <button class="vis-back" id="visBack">← Back</button>
+        </div>
+      </div>
+
+      <div class="vis-result" id="visResult">
+        <div class="eyebrow">Your Result</div>
+        <div class="vis-score" id="visScoreNum">0<span id="visScoreMax">/18</span></div>
+        <div class="vis-tier" id="visTier">—</div>
+        <div class="vis-feedback" id="visFeedback"></div>
+        <a class="btn btn-primary" href="#contact" id="visCta">Contact Us Today</a>
+        <button class="vis-restart" id="visRestart">Retake the check</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="eyebrow">The next step</div>
+    <h2 class="chrome">Your business has a name.<br>Build the presence.</h2>
+    <p>
+      Start with one requirement or bring the full project together.
+      We'll scope the work around what the business actually needs.
+    </p>
+    <a class="btn btn-primary" href="#contact">Discuss Your Project</a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <div class="eyebrow">Project Enquiry</div>
+      <h2 style="margin-top:18px">Tell us what you're building.</h2>
+      <p>Send the basics and we'll have the information needed to start the conversation.</p>
+
+      <div class="contact-details">
+        <div class="detail"><small>Company</small><span>Lofty Dev · A division of Lofty Investments</span></div>
+        <div class="detail"><small>Services</small><span>Identity · Web · Signage · Print · Vehicle Branding</span></div>
+        <div class="detail"><small>Location</small><span>South Africa</span></div>
+      </div>
+    </div>
+
+    <form id="projectForm">
+      <div class="field" id="nameField">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your full name" autocomplete="name">
+        <div class="error">Please enter your name.</div>
+      </div>
+
+      <div class="field" id="emailField">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+        <div class="error">Please enter a valid email address.</div>
+      </div>
+
+      <div class="field" id="serviceField">
+        <label for="service">Primary Requirement</label>
+        <select id="service">
+          <option value="">Select a service</option>
+          <option>Logo & Brand Design</option>
+          <option>Website Development</option>
+          <option>Signage & Print</option>
+          <option>Vehicle Branding</option>
+          <option>Complete Brand Package</option>
+          <option>Other / Not sure yet</option>
+        </select>
+        <div class="error">Please select a requirement.</div>
+      </div>
+
+      <div class="field" id="messageField">
+        <label for="message">Project Brief</label>
+        <textarea id="message" placeholder="Briefly describe the business and what you need."></textarea>
+        <div class="error">Please provide a short brief.</div>
+      </div>
+
+      <button class="btn btn-primary" id="submit" type="submit" style="width:100%">Prepare Enquiry</button>
+      <div class="form-status" id="status" aria-live="polite"></div>
+      <p style="font-size:10.5px;color:var(--faint);margin-top:14px;line-height:1.6">
+        By sending this enquiry you agree to our <a href="terms.html" style="text-decoration:underline">Terms</a> and <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>.
+      </p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div>
+        <div class="footer-name">LOFTY <span>DEV</span></div>
+        <div class="footer-copy">Digital and brand development by Lofty Investments.</div>
+      </div>
+      <div class="footer-links">
+        Identity · Web · Signage<br>
+        Print · Vehicle Branding<br>
+        <a href="terms.html" style="text-decoration:underline">Terms &amp; Conditions</a> · <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year"></span> Lofty Dev · A Division of Lofty Investments</div>
+    <div class="copyright" style="margin-top:6px">
+      <a href="privacy.html" style="text-decoration:underline">POPIA Compliant</a> — see our Privacy Policy for how your information is handled.
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&larr;</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&rarr;</button>
+  <div class="lightbox-frame">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption">
+      <strong id="lightboxTitle"></strong>
+      <div id="lightboxDesc"></div>
+      <div class="lightbox-count" id="lightboxCount"></div>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">&uarr;</button>
+
+<script>
+/* Replace with the real Lofty Dev enquiry email before publishing. */
+const LOFTY_EMAIL = "loftyinvestments@outlook.com";
+
+const menu = document.getElementById("menu");
+const mobile = document.getElementById("mobile");
+
+menu.addEventListener("click",()=>{
+  const open = mobile.classList.toggle("open");
+  menu.classList.toggle("open",open);
+  menu.setAttribute("aria-expanded",open);
+  document.body.classList.toggle("menu-open",open);
+});
+
+mobile.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  mobile.classList.remove("open");
+  menu.classList.remove("open");
+  menu.setAttribute("aria-expanded","false");
+  document.body.classList.remove("menu-open");
+}));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const form=document.getElementById("projectForm");
+const status=document.getElementById("status");
+
+function invalid(id,on){document.getElementById(id).classList.toggle("invalid",on)}
+function emailOK(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
+
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const service=document.getElementById("service").value;
+  const message=document.getElementById("message").value.trim();
+
+  const a=!name,b=!emailOK(email),c=!service,d=message.length<10;
+  invalid("nameField",a);
+  invalid("emailField",b);
+  invalid("serviceField",c);
+  invalid("messageField",d);
+
+  if(a||b||c||d){
+    status.className="form-status error";
+    status.textContent="Please complete the highlighted fields.";
+    return;
+  }
+
+  if(LOFTY_EMAIL.includes("YOUR-REAL-EMAIL")){
+    status.className="form-status error";
+    status.textContent="Add the real enquiry email in the site configuration before publishing.";
+    return;
+  }
+
+  const subject=encodeURIComponent("Lofty Dev Project Enquiry — "+service);
+  const body=encodeURIComponent(
+`Hello Lofty Dev,
+
+I would like to enquire about a project.
+
+Name: ${name}
+Email: ${email}
+Requirement: ${service}
+
+Project brief:
+${message}
+
+Regards,
+${name}`
+  );
+
+  window.location.href=`mailto:${LOFTY_EMAIL}?subject=${subject}&body=${body}`;
+  status.className="form-status success";
+  status.textContent="Your email application should open with the enquiry prepared.";
+});
+
+["name","email","service","message"].forEach(id=>{
+  document.getElementById(id).addEventListener("input",()=>{
+    status.textContent="";
+    status.className="form-status";
+  });
+});
+
+// Work section — thumbnail strip swaps the featured photo
+// Work section — each has-image card's own thumbnail strip swaps its own featured photo
+document.querySelectorAll(".work-card.has-image").forEach(card=>{
+  const mainImg = card.querySelector(".work-photo");
+  const thumbs = card.querySelectorAll(".work-strip img");
+  if (!thumbs.length) return;
+  thumbs.forEach(thumb=>{
+    thumb.addEventListener("click",()=>{
+      mainImg.src = thumb.dataset.full;
+      thumbs.forEach(t=>t.classList.remove("active"));
+      thumb.classList.add("active");
+    });
+  });
+});
+
+// Business Visibility Check
+const visQuestions = [
+  {
+    q: "Does your business have a professional logo?",
+    options: [
+      { label: "No logo, or just business name typed out", score: 0 },
+      { label: "A basic logo made by me, a friend, or a free tool", score: 1 },
+      { label: "Yes, professionally designed", score: 2 }
+    ]
+  },
+  {
+    q: "Does your branding look the same everywhere — website, cards, signage?",
+    options: [
+      { label: "It's different in every place", score: 0 },
+      { label: "Mostly similar, a few inconsistencies", score: 1 },
+      { label: "Fully consistent everywhere", score: 2 }
+    ]
+  },
+  {
+    q: "Do you have a website?",
+    options: [
+      { label: "No website", score: 0 },
+      { label: "Just a social media page", score: 1 },
+      { label: "Yes, a proper business website", score: 2 }
+    ]
+  },
+  {
+    q: "Can people find your business on Google Search or Maps?",
+    options: [
+      { label: "Not that I know of", score: 0 },
+      { label: "Maybe, but the listing is incomplete or unclaimed", score: 1 },
+      { label: "Yes, a complete and active listing", score: 2 }
+    ]
+  },
+  {
+    q: "Is your business active on social media?",
+    options: [
+      { label: "No presence", score: 0 },
+      { label: "A page exists but rarely posts", score: 1 },
+      { label: "Active and regularly updated", score: 2 }
+    ]
+  },
+  {
+    q: "Does your business location have proper signage?",
+    options: [
+      { label: "No signage, or just a handwritten sign", score: 0 },
+      { label: "Basic signage", score: 1 },
+      { label: "Professional, branded signage", score: 2 }
+    ]
+  },
+  {
+    q: "Do you have business cards or printed marketing material?",
+    options: [
+      { label: "None", score: 0 },
+      { label: "Basic, self-made", score: 1 },
+      { label: "Professionally designed and printed", score: 2 }
+    ]
+  },
+  {
+    q: "Is your business vehicle branded?",
+    options: [
+      { label: "No vehicle, or it's unbranded", score: 0 },
+      { label: "A sticker or basic decal", score: 1 },
+      { label: "Fully branded vehicle", score: 2 }
+    ]
+  },
+  {
+    q: "If a stranger encountered your business today, would they immediately trust it's professional?",
+    options: [
+      { label: "Probably not", score: 0 },
+      { label: "Somewhat", score: 1 },
+      { label: "Yes, without hesitation", score: 2 }
+    ]
+  }
+];
+
+const visMaxScore = visQuestions.reduce((sum,q)=>sum + Math.max(...q.options.map(o=>o.score)), 0);
+let visIndex = 0;
+let visAnswers = new Array(visQuestions.length).fill(null);
+
+const visQuizEl = document.getElementById("visQuiz");
+const visResultEl = document.getElementById("visResult");
+const visProgressBar = document.getElementById("visProgressBar");
+const visStepLabel = document.getElementById("visStepLabel");
+const visQuestionEl = document.getElementById("visQuestion");
+const visOptionsEl = document.getElementById("visOptions");
+const visBackBtn = document.getElementById("visBack");
+
+function renderVisQuestion(){
+  const q = visQuestions[visIndex];
+  visStepLabel.textContent = `Question ${visIndex+1} of ${visQuestions.length}`;
+  visProgressBar.style.width = `${(visIndex/visQuestions.length)*100}%`;
+  visQuestionEl.textContent = q.q;
+  visOptionsEl.innerHTML = "";
+  q.options.forEach((opt,i)=>{
+    const btn = document.createElement("button");
+    btn.className = "vis-option";
+    btn.type = "button";
+    btn.textContent = opt.label;
+    if (visAnswers[visIndex] === i) btn.classList.add("selected");
+    btn.addEventListener("click", ()=>{
+      visAnswers[visIndex] = i;
+      if (visIndex < visQuestions.length - 1){
+        visIndex++;
+        renderVisQuestion();
+      } else {
+        showVisResult();
+      }
+    });
+    visOptionsEl.appendChild(btn);
+  });
+  visBackBtn.classList.toggle("show", visIndex > 0);
+}
+
+visBackBtn.addEventListener("click", ()=>{
+  if (visIndex > 0){
+    visIndex--;
+    renderVisQuestion();
+  }
+});
+
+function showVisResult(){
+  const total = visAnswers.reduce((sum,ansIdx,i)=>{
+    if (ansIdx === null) return sum;
+    return sum + visQuestions[i].options[ansIdx].score;
+  }, 0);
+  const pct = total / visMaxScore;
+
+  let tier, feedback;
+  if (pct < 0.34){
+    tier = "Low Visibility — Still Mostly Invisible";
+    feedback = "Right now your business is easy to miss. There's very little in place — online or in person — that tells a stranger you're a real, professional operation. That's the good news too: almost everything you fix from here is a visible improvement.";
+  } else if (pct < 0.67){
+    tier = "Getting There — Inconsistent Presence";
+    feedback = "You have some of the basics, but the pieces don't add up to one consistent brand yet. A customer might see you in one place and not recognise you in another. Tightening this up is usually a quick win.";
+  } else if (pct < 0.90){
+    tier = "Solid Foundation — Room to Sharpen";
+    feedback = "Most of the fundamentals are in place. The remaining gap is usually consistency and polish — making sure the same identity shows up everywhere a customer looks, without exception.";
+  } else {
+    tier = "Highly Visible — Strong Presence";
+    feedback = "Your business shows up professionally across the board. From here it's about maintaining consistency as you grow, and refreshing the pieces that age fastest — like signage, print, and web content.";
+  }
+
+  document.getElementById("visScoreNum").firstChild.textContent = total;
+  document.getElementById("visScoreMax").textContent = `/${visMaxScore}`;
+  document.getElementById("visTier").textContent = tier;
+  document.getElementById("visFeedback").innerHTML = `<strong>${tier.split(" — ")[0]}.</strong> ${feedback}`;
+
+  visQuizEl.classList.add("hide");
+  visResultEl.classList.add("show");
+}
+
+document.getElementById("visRestart").addEventListener("click", ()=>{
+  visIndex = 0;
+  visAnswers = new Array(visQuestions.length).fill(null);
+  visResultEl.classList.remove("show");
+  visQuizEl.classList.remove("hide");
+  renderVisQuestion();
+});
+
+renderVisQuestion();
+
+// Portfolio lightbox gallery — click any work photo to browse everything, big
+const galleryImages = [
+  { src: "work-vehicle-1.jpg", title: "Vehicle Branding", desc: "Rustenburg Local Municipality — fleet door decal" },
+  { src: "work-vehicle-2.jpg", title: "Vehicle Branding", desc: "Rustenburg Local Municipality — fleet door decal" },
+  { src: "work-vehicle-3.jpg", title: "Vehicle Branding", desc: "Rustenburg Local Municipality — cabinet panel decal" },
+  { src: "work-print-1.jpg", title: "Signage & Print", desc: "Freshly printed, before application to the fleet" },
+  { src: "work-web-1.jpg", title: "Digital — Three Q's", desc: "Website hero section" },
+  { src: "work-web-2.jpg", title: "Digital — Three Q's", desc: "Call-to-action section" },
+  { src: "work-web-3.jpg", title: "Digital — Three Q's", desc: "Footer with contact details" },
+  { src: "work-innovative-1.jpg", title: "Digital — Innovative Solutions & Electronics", desc: "Website hero section" },
+  { src: "work-innovative-2.jpg", title: "Digital — Innovative Solutions & Electronics", desc: "Mission & vision section" },
+  { src: "work-innovative-3.jpg", title: "Digital — Innovative Solutions & Electronics", desc: "Services section" }
+];
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxTitle = document.getElementById("lightboxTitle");
+const lightboxDesc = document.getElementById("lightboxDesc");
+const lightboxCount = document.getElementById("lightboxCount");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+
+let galleryIndex = 0;
+
+function renderGallerySlide(){
+  const item = galleryImages[galleryIndex];
+  lightboxImg.src = item.src;
+  lightboxImg.alt = item.desc;
+  lightboxTitle.textContent = item.title;
+  lightboxDesc.textContent = item.desc;
+  lightboxCount.textContent = `${galleryIndex + 1} / ${galleryImages.length}`;
+}
+
+function openGallery(startSrc){
+  const found = galleryImages.findIndex(g => startSrc.endsWith(g.src));
+  galleryIndex = found >= 0 ? found : 0;
+  renderGallerySlide();
+  lightbox.classList.add("open");
+}
+function closeGallery(){
+  lightbox.classList.remove("open");
+  lightboxImg.src = "";
+}
+function nextSlide(){
+  galleryIndex = (galleryIndex + 1) % galleryImages.length;
+  renderGallerySlide();
+}
+function prevSlide(){
+  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  renderGallerySlide();
+}
+
+// Clicking anywhere on a portfolio card (but not its thumbnail strip or project tabs) opens the gallery
+document.querySelectorAll(".work-card.has-image").forEach(card=>{
+  card.style.cursor = "zoom-in";
+  card.addEventListener("click", (e)=>{
+    if (e.target.closest(".work-strip") || e.target.closest(".work-tabs")) return;
+    const mainImg = card.querySelector(".work-photo");
+    openGallery(mainImg.src);
+  });
+});
+
+// Digital card — switch between showcased projects (Three Q's / Innovative Solutions)
+const digitalProjects = {
+  threeqs: {
+    sub: "Three Q's — a full site built around clarity, credibility and conversion.",
+    firstImg: "work-web-1.jpg"
+  },
+  innovative: {
+    sub: "Innovative Solutions & Electronics — ICT infrastructure and solar, built to read as credible to training providers.",
+    firstImg: "work-innovative-1.jpg"
+  }
+};
+const workDigitalImg = document.getElementById("workDigitalImg");
+const digitalSubEl = document.getElementById("digitalSub");
+document.querySelectorAll(".work-tab").forEach(tab=>{
+  tab.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    const project = tab.dataset.project;
+    document.querySelectorAll(".work-tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById("stripThreeQs").style.display = project === "threeqs" ? "flex" : "none";
+    document.getElementById("stripInnovative").style.display = project === "innovative" ? "flex" : "none";
+    const data = digitalProjects[project];
+    digitalSubEl.textContent = data.sub;
+    workDigitalImg.src = data.firstImg;
+    document.querySelectorAll(`.work-strip[data-project="${project}"] img`).forEach((img,i)=>{
+      img.classList.toggle("active", i === 0);
+    });
+  });
+});
+
+lightboxClose.addEventListener("click", closeGallery);
+lightboxNext.addEventListener("click", nextSlide);
+lightboxPrev.addEventListener("click", prevSlide);
+lightbox.addEventListener("click", (e)=>{
+  if (e.target === lightbox) closeGallery();
+});
+document.addEventListener("keydown", (e)=>{
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "Escape") closeGallery();
+  if (e.key === "ArrowRight") nextSlide();
+  if (e.key === "ArrowLeft") prevSlide();
+});
+
+// Scroll-to-top button
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", ()=>{
+  scrollTopBtn.classList.toggle("show", window.scrollY > 480);
+});
+scrollTopBtn.addEventListener("click", ()=>{
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+</body>
+</html>
