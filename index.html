@@ -143,6 +143,7 @@ header{
   display:flex;
   align-items:center;
   position:relative;
+  overflow:hidden;
 }
 .hero:before{
   content:"";
@@ -261,7 +262,7 @@ header{
     linear-gradient(135deg,rgba(255,255,255,.09),transparent 35%),
     radial-gradient(circle at 70% 25%,rgba(255,255,255,.09),transparent 25%);
 }
-.work-card .work-inner{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.work-card .work-inner{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:flex-start}
 .work-label{font-size:9px;letter-spacing:.16em;color:#8b8b8e;text-transform:uppercase}
 .work-title{font-family:Manrope,sans-serif;font-size:clamp(25px,4vw,55px);line-height:.95;letter-spacing:-.05em;text-transform:uppercase;max-width:520px}
 .work-small .work-title{font-size:27px}
@@ -277,15 +278,17 @@ header{
 .work-card.has-image:hover .work-photo{ transform:scale(1.04); filter:grayscale(10%) contrast(1.08); }
 #workDigital:hover #workDigitalImg{ transform:scale(1.04); filter:none; }
 .work-card.has-image .work-inner{
-  background:linear-gradient(180deg, rgba(5,5,6,.05) 0%, rgba(5,5,6,.25) 55%, rgba(5,5,6,.94) 100%);
+  background:linear-gradient(180deg, rgba(5,5,6,.6) 0%, rgba(5,5,6,.42) 40%, rgba(5,5,6,.5) 65%, rgba(5,5,6,.94) 100%);
   transition:background .3s ease;
   pointer-events:none;
 }
 .work-card.has-image .work-inner .work-strip{ pointer-events:auto; }
 .work-card.has-image .work-inner .work-tabs{ pointer-events:auto; }
 .work-bottom-row{
-  position:absolute; bottom:34px; left:34px; right:34px;
   display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:10px;
+  margin-top:auto;
+  padding-top:18px;
   z-index:2;
 }
 .work-tabs{ display:flex; gap:8px; }
@@ -436,7 +439,10 @@ header{
   border-radius:2px;
   outline:0;
   padding:13px;
-  font-size:12px;
+  font-size:16px;
+}
+@media(min-width:621px){
+  .field input,.field select,.field textarea{ font-size:12px; }
 }
 .field input:focus,.field select:focus,.field textarea:focus{border-color:#aaa}
 .field textarea{min-height:120px;resize:vertical}
