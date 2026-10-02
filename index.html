@@ -1,57 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lofty Dev is the web and creative design division of Lofty Investments, based in Witpoortjie, South Africa. Logo & brand design, website development, signage & print, and vehicle branding for South African businesses.">
-<link rel="canonical" href="https://loftyinvestments.co.za/">
-<meta name="theme-color" content="#050505">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<title>Lofty Dev — Digital & Brand Development | Lofty Investments</title>
-
-<!-- Open Graph / social sharing preview -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Lofty Dev">
-<meta property="og:title" content="Lofty Dev — Digital & Brand Development">
-<meta property="og:description" content="Logo & brand design, websites, signage & print, and vehicle branding — one consistent identity, built by Lofty Investments in South Africa.">
-<meta property="og:image" content="https://loftyinvestments.co.za/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://loftyinvestments.co.za/">
-<meta property="og:locale" content="en_ZA">
-
-<!-- Twitter/X card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lofty Dev — Digital & Brand Development">
-<meta name="twitter:description" content="Logo & brand design, websites, signage & print, and vehicle branding — one consistent identity, built by Lofty Investments in South Africa.">
-<meta name="twitter:image" content="https://loftyinvestments.co.za/og-image.png">
-
-<!-- Structured data: tells Google this is a real local business -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Lofty Dev",
-  "alternateName": "Lofty Investments",
-  "url": "https://loftyinvestments.co.za/",
-  "logo": "https://loftyinvestments.co.za/lofty-logo.png",
-  "image": "https://loftyinvestments.co.za/og-image.png",
-  "description": "Digital and creative design division of Lofty Investments, offering logo and brand design, website development, signage and print, and vehicle branding.",
-  "email": "loftyinvestments@outlook.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "5 Leendert Street",
-    "addressLocality": "Witpoortjie",
-    "postalCode": "1724",
-    "addressCountry": "ZA"
-  },
-  "areaServed": "South Africa",
-  "priceRange": "$$",
-  "sameAs": []
-}
-</script>
-
+<meta name="description" content="Lofty Dev — digital and brand development by Lofty Investments. Web design, identity, signage, print and vehicle branding.">
+<title>Lofty Dev — Digital & Brand Development</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -157,6 +110,7 @@ header{
 .logo-link{display:flex;align-items:center;gap:11px}
 .logo-link img{
   width:43px;height:43px;object-fit:contain;
+  filter:grayscale(1) brightness(1.45);
 }
 .logo-type{font-family:Manrope,sans-serif;font-size:17px;font-weight:800;letter-spacing:.04em}
 .logo-type span{color:var(--faint);font-weight:500}
@@ -189,7 +143,6 @@ header{
   display:flex;
   align-items:center;
   position:relative;
-  overflow:hidden;
 }
 .hero:before{
   content:"";
@@ -308,7 +261,7 @@ header{
     linear-gradient(135deg,rgba(255,255,255,.09),transparent 35%),
     radial-gradient(circle at 70% 25%,rgba(255,255,255,.09),transparent 25%);
 }
-.work-card .work-inner{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:flex-start}
+.work-card .work-inner{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
 .work-label{font-size:9px;letter-spacing:.16em;color:#8b8b8e;text-transform:uppercase}
 .work-title{font-family:Manrope,sans-serif;font-size:clamp(25px,4vw,55px);line-height:.95;letter-spacing:-.05em;text-transform:uppercase;max-width:520px}
 .work-small .work-title{font-size:27px}
@@ -324,17 +277,15 @@ header{
 .work-card.has-image:hover .work-photo{ transform:scale(1.04); filter:grayscale(10%) contrast(1.08); }
 #workDigital:hover #workDigitalImg{ transform:scale(1.04); filter:none; }
 .work-card.has-image .work-inner{
-  background:linear-gradient(180deg, rgba(5,5,6,.6) 0%, rgba(5,5,6,.42) 40%, rgba(5,5,6,.5) 65%, rgba(5,5,6,.94) 100%);
+  background:linear-gradient(180deg, rgba(5,5,6,.05) 0%, rgba(5,5,6,.25) 55%, rgba(5,5,6,.94) 100%);
   transition:background .3s ease;
   pointer-events:none;
 }
 .work-card.has-image .work-inner .work-strip{ pointer-events:auto; }
 .work-card.has-image .work-inner .work-tabs{ pointer-events:auto; }
 .work-bottom-row{
+  position:absolute; bottom:34px; left:34px; right:34px;
   display:flex; align-items:center; justify-content:space-between;
-  flex-wrap:wrap; gap:10px;
-  margin-top:auto;
-  padding-top:18px;
   z-index:2;
 }
 .work-tabs{ display:flex; gap:8px; }
@@ -485,10 +436,7 @@ header{
   border-radius:2px;
   outline:0;
   padding:13px;
-  font-size:16px;
-}
-@media(min-width:621px){
-  .field input,.field select,.field textarea{ font-size:12px; }
+  font-size:12px;
 }
 .field input:focus,.field select:focus,.field textarea:focus{border-color:#aaa}
 .field textarea{min-height:120px;resize:vertical}
@@ -659,7 +607,7 @@ footer{border-top:1px solid var(--line);padding:45px 0 30px}
 <header>
   <nav class="container nav">
     <a class="logo-link" href="#top" aria-label="Lofty Dev home">
-      <img src="lofty-logo.png" alt="Lofty Dev logo">
+      <img src="lofty-logo.jpeg" alt="Lofty Dev logo">
       <div class="logo-type">LOFTY <span>DEV</span></div>
     </a>
 
@@ -943,8 +891,6 @@ footer{border-top:1px solid var(--line);padding:45px 0 30px}
         <div class="detail"><small>Company</small><span>Lofty Dev · A division of Lofty Investments</span></div>
         <div class="detail"><small>Services</small><span>Identity · Web · Signage · Print · Vehicle Branding</span></div>
         <div class="detail"><small>Location</small><span>South Africa</span></div>
-        <div class="detail"><small>Sales &amp; New Projects</small><span><a href="mailto:sales@loftyinvestments.co.za" style="text-decoration:underline">sales@loftyinvestments.co.za</a></span></div>
-        <div class="detail"><small>Support</small><span><a href="mailto:support@loftyinvestments.co.za" style="text-decoration:underline">support@loftyinvestments.co.za</a></span></div>
       </div>
     </div>
 
@@ -1002,8 +948,6 @@ footer{border-top:1px solid var(--line);padding:45px 0 30px}
       <div class="footer-links">
         Identity · Web · Signage<br>
         Print · Vehicle Branding<br>
-        <a href="mailto:sales@loftyinvestments.co.za" style="text-decoration:underline">sales@loftyinvestments.co.za</a><br>
-        <a href="mailto:support@loftyinvestments.co.za" style="text-decoration:underline">support@loftyinvestments.co.za</a><br>
         <a href="terms.html" style="text-decoration:underline">Terms &amp; Conditions</a> · <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>
       </div>
     </div>
